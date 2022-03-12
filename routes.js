@@ -27,4 +27,31 @@ router.get('/:category/:tag', (req, res) => {
 	});
 });
 
+// Query String
+router.get('/posts', (req, res) => {
+	const { page, limit } = req.query;
+	res.json({
+		status: 'success',
+		data: [
+			{
+				id: 1,
+				title: 'Post 1',
+				body: 'This is the body of post 1'
+			},
+			{
+				id: 2,
+				title: 'Post 2',
+				body: 'This is the body of post 2'
+			},
+			{
+				id: 3,
+				title: 'Post 3',
+				body: 'This is the body of post 3'
+			}
+		],
+		page,
+		limit
+	});
+});
+
 module.exports = router;

@@ -2,6 +2,7 @@ const { route } = require('express/lib/application');
 
 const router = require('express').Router();
 
+// Basic Route
 router.get('/', (req, res) => {
 	res.send({
 		status: 'success',
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
 	});
 });
 
-// Dynamic route
+// Dynamic Route
 router.get('/user/:id', (req, res) => {
 	const { id } = req.params;
 	res.json({
@@ -27,7 +28,7 @@ router.get('/:category/:tag', (req, res) => {
 	});
 });
 
-// Query String
+// Query String Route
 router.get('/posts', (req, res) => {
 	const { page, limit } = req.query;
 	res.json({

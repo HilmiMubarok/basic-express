@@ -5,6 +5,13 @@ const router = require('./routes');
 const log = require('./middleware/logger');
 
 app.use(log);
+
+// use url encoded
+app.use(express.urlencoded({ extended: true }));
+
+// use express.json
+app.use(express.json());
+
 app.use(router);
 
 // 404 Not Found Route

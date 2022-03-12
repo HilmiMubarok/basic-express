@@ -55,4 +55,17 @@ router.get('/posts', (req, res) => {
 	});
 });
 
+// route post products
+router.post('/product', (req, res) => {
+	const { title, price, description } = req.body;
+	res.json({
+		status: 'success',
+		data: {
+			title,
+			price,
+			description
+		}
+	});
+});
+
 module.exports = router;

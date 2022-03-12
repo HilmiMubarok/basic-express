@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const router = require('./routes');
 const log = require('./middleware/logger');
+const path = require('path');
 
 app.use(log);
 
@@ -11,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // use express.json
 app.use(express.json());
+
+// express static path join uploads folder
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(router);
 

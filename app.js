@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const router = require('./routes');
+const productRouter = require('./app/product/routes');
 const log = require('morgan');
 const path = require('path');
 
@@ -15,9 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // express static path join uploads folder
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use(router);
+app.use(productRouter);
 
 // 404 Not Found Route
 app.use((req, res, next) => {

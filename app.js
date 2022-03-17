@@ -1,11 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const productRouter = require('./app/product/routes');
 const log = require('morgan');
 const path = require('path');
+var corsOptions = {
+	origin: 'http://localhost:5000'
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(log('dev'));
 
 // use url encoded
@@ -15,16 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // express static path join uploads folder
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.use(productRouter);
+const db = require('./app/models');
+db.sequelize.sync();
 
-// 404 Not Found Route
-app.use((req, res, next) => {
-	res.send({
-		status: 404,
-		message: 'Not Found'
-	});
+app.get('/', (req, res) => {
+	res.json({ message: 'Hello World.' });
 });
 
-app.listen(process.env.PORT || 5000, () => console.log('Server started'));
+require('./app/routes/user.routes.js')(app);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log('Server started on port ' + PORT));

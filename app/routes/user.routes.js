@@ -17,7 +17,7 @@ module.exports = (app) => {
 	router.delete('/users/:id', users.delete);
 
 	// Delete all Users
-	router.delete('/', users.deleteAll);
+	router.delete('/users', users.deleteAll);
 
 	app.use('/api', router);
 };

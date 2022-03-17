@@ -1,9 +1,13 @@
 const express = require('express');
 
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
 const router = require('./routes');
 const log = require('./middleware/logger');
 const path = require('path');
+const req = require('express/lib/request');
 
 app.use(log);
 
@@ -26,4 +30,4 @@ app.use((req, res, next) => {
 	});
 });
 
-app.listen(3333, () => console.log('Server started on port 3333'));
+app.listen(4000, () => console.log('Server started on port 4000'));

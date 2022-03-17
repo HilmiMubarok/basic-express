@@ -1,27 +1,15 @@
 # LEARN BASIC EXPRESSJS
 
-## List Routes
+**A simple RESTFULL API using [ExpressJS]('https://expressjs.com'), [MySQL](https://mysql.com), and [Sequelize]('https://sequelize.org).**
 
-`
+List Routes
 
-    - GET /
-
-	- GET /user/:id
-
-	- GET /:category/:tag
-
-	- GET /posts
-
-	- POST /products
-
-		- title
-
+	GET /products
+	GET /product/:id
+    GET /products/keyword={name}
+    POST /product
+		- name
 		- price
-
 		- description
-
-	- POST /profile
-
-		- photo
-
-`
+    PUT /product/:id
+    DELETE /product/:id

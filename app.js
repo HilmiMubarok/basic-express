@@ -1,15 +1,12 @@
 const express = require('express');
-
 const cors = require('cors');
-
 const app = express();
-app.use(cors());
 const router = require('./routes');
-const log = require('./middleware/logger');
+const log = require('morgan');
 const path = require('path');
-const req = require('express/lib/request');
 
-app.use(log);
+app.use(cors());
+app.use(log('dev'));
 
 // use url encoded
 app.use(express.urlencoded({ extended: true }));

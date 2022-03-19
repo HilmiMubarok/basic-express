@@ -3,11 +3,8 @@ const cors = require('cors');
 const app = express();
 const log = require('morgan');
 const path = require('path');
-var corsOptions = {
-	origin: 'http://localhost:5000'
-};
 
-app.use(cors(corsOptions));
+app.use(cors);
 app.use(log('dev'));
 
 // use url encoded
@@ -17,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // express static path join uploads folder
-// app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 const db = require('./app/models');
 db.sequelize.sync();

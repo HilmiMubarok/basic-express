@@ -5,8 +5,11 @@ if (process.env.URI) {
 		dialect: 'postgres',
 		protocol: 'postgres',
 		port: 5432,
+		logging: true,
 		host: 'ec2-3-223-213-207.compute-1.amazonaws.com',
-		logging: true //false
+		username: 'nnjbowupfswmbh',
+		password: 'fc64437e0e430bb4fc8105c98e75c190c9a7c9dbf426bf1f8595b3f46386b2f5',
+		database: 'del80u0juuh8dr'
 	});
 	(async () => {
 		try {

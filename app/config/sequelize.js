@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
-if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
-	const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+if (process.env.URI) {
+	const sequelize = new Sequelize(process.env.URI, {
 		dialect: 'postgres',
 		protocol: 'postgres',
 		port: 5432,
